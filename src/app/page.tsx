@@ -13,7 +13,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="flex items-center justify-center p-20">
+            <div className="flex items-center justify-center p-7">
                 <button
                     onClick={handleToggle}
                     className="bg-green-700 hover:bg-green-800 rounded-lg p-3"
@@ -22,11 +22,17 @@ export default function Home() {
                     Toggle to change state
                 </button>
             </div>
-            <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+            <div className="flex  flex-col items-center justify-items-center min-h-screen p-8 font-[family-name:var(--font-geist-sans)]">
                 <div>
                     <h4 className="text-red-700 text-3xl">
                         Example 1: With Unique Key Prop
                     </h4>
+                    <p className="text-amber-400">
+                        A new instance of the component is
+                        created each time the key changes. This ensures that
+                        React fully remounts the component when switching
+                        between logged-in and logged-out states.
+                    </p>
                     <p className="text-gray-600 mb-4">
                         In this example, both <code>Input</code> and{" "}
                         <code>DisplayText</code> components are given unique{" "}
@@ -34,7 +40,7 @@ export default function Home() {
                         ensures that React can efficiently update the UI by
                         keeping track of changes.
                     </p>
-                    <div className="text-center flex justify-center items-center m-10 border-2 h-40 w-80">
+                    <div className="text-center flex justify-center items-center my-10  border-2 h-40 w-80">
                         {isLoggedIn ? (
                             <div
                                 key="loggedIn"
@@ -58,6 +64,14 @@ export default function Home() {
                     <h4 className="text-red-700 text-3xl">
                         Example 2: Without Unique Key Prop
                     </h4>
+                    <p className="text-amber-400">
+                        React does not create a new instance of
+                        the component. Instead, it reuses the same instance and
+                        simply updates the component by passing new props. This
+                        means the state of the component remains intact, but the
+                        UI might not be optimized in the same way as when unique
+                        keys are used.
+                    </p>
                     <p className="text-gray-600 mb-4">
                         In this example, the <code>Input</code> and{" "}
                         <code>DisplayText</code> components are rendered without
